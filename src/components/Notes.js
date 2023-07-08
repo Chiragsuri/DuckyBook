@@ -12,8 +12,8 @@ const Notes = (props) => {
     if (localStorage.getItem("token")) {
       getNotes();
     } else {
-      navigate("/login");
-      props.showAlert("invalid credentials", "danger");
+      navigate("/");
+      props.showAlert("Please Login to Continue", "danger");
     }
     // eslint-disable-next-line
   }, []);
@@ -101,8 +101,8 @@ const Notes = (props) => {
                   <label htmlFor="description" className="form-label">
                     Description
                   </label>
-                  <input
-                    type="text"
+                  <textarea
+                    rows={3}
                     className="form-control"
                     id="edescription"
                     name="edescription"

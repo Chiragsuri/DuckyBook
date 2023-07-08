@@ -18,12 +18,11 @@ const Login = (props) => {
       }),
     });
     const json = await response.json();
-    console.log(json);
     if (json.success) {
       // Save the auth token and redirect
       localStorage.setItem("token", json.authtoken);
       props.showAlert("logged in succefully", "success");
-      navigate("/");
+      navigate("/notes");
     } else {
       props.showAlert("invalid credentials", "danger");
     }
@@ -68,7 +67,13 @@ const Login = (props) => {
           />
         </div>
 
-        <button type="submit" className="btn btn-primary">
+        <button
+          disabled={
+            credentials.email.length < 5 || credentials.password.length < 5
+          }
+          type="submit"
+          className="btn btn-primary"
+        >
           Submit
         </button>
       </form>

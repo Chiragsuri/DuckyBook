@@ -5,8 +5,20 @@ const NoteItem = (props) => {
   const context = useContext(noteContext);
   const { deleteNote } = context;
   const { note, updateNote } = props;
+
+  // Function to convert new lines to <br> tags
+  const formatDescription = (description) => {
+    const lines = description.split("\n");
+    return lines.map((line, index) => (
+      <React.Fragment key={index}>
+        {line}
+        <br />
+      </React.Fragment>
+    ));
+  };
+
   return (
-    <div className="col-md-3">
+    <div className="row-md-3">
       <div className="card my-3">
         <div className="card-body">
           <div className="d-flex align-items-center">
@@ -25,7 +37,7 @@ const NoteItem = (props) => {
               }}
             ></i>
           </div>
-          <p className="card-text">{note.description}</p>
+          <p className="card-text">{formatDescription(note.description)}</p>
         </div>
       </div>
     </div>

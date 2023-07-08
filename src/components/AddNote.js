@@ -46,8 +46,8 @@ const AddNote = (props) => {
           <label htmlFor="description" className="form-label">
             Description
           </label>
-          <input
-            type="text"
+          <textarea
+            rows={6}
             className="form-control"
             id="description"
             name="description"

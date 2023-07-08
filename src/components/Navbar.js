@@ -41,16 +41,20 @@ const Navbar = () => {
                 Home
               </Link>
             </li>
-            <li className="nav-item">
-              <Link
-                className={`nav-link ${
-                  location.pathname === "/about" ? "active" : ""
-                }`}
-                to="/about"
-              >
-                About
-              </Link>
-            </li>
+            {localStorage.getItem("token") ? (
+              <li className="nav-item">
+                <Link
+                  className={`nav-link ${
+                    location.pathname === "/notes" ? "active" : ""
+                  }`}
+                  to="/notes"
+                >
+                  Notes
+                </Link>
+              </li>
+            ) : (
+              ""
+            )}
           </ul>
           {!localStorage.getItem("token") ? (
             <form className="d-flex">

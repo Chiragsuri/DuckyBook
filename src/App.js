@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Home from "./components/Home";
+import DisplayNotes from "./components/DisplayNotes";
 import About from "./components/About";
 import NoteState from "./context/Notes/NoteState";
 import Alert from "./components/Alert";
@@ -16,7 +16,7 @@ function App() {
     setAlert({ msg: message, type: type });
     setTimeout(() => {
       setAlert(null);
-    }, 1500);
+    }, 2000);
   };
   return (
     <>
@@ -26,8 +26,12 @@ function App() {
           <Alert alert={alert} />
           <div className="container">
             <Routes>
-              <Route exact path="/" element={<Home showAlert={showAlert} />} />
-              <Route exact path="/about" element={<About />} />
+              <Route exact path="/" element={<About showAlert={showAlert} />} />
+              <Route
+                exact
+                path="/notes"
+                element={<DisplayNotes showAlert={showAlert} />}
+              />
               <Route
                 exact
                 path="/login"
