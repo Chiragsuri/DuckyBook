@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Loader from "./Loader";
 
 const Signup = (props) => {
+  Loader(props.setProgress);
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
@@ -42,7 +44,7 @@ const Signup = (props) => {
 
   return (
     <div className="container mt-3">
-      <h2 className="mb-4">SignUpto Continue</h2>
+      <h2 className="mb-4">SignUp to Continue</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">

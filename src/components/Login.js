@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Loader from "./Loader";
 
 const Login = (props) => {
+  Loader(props.setProgress);
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   let navigate = useNavigate();
 
