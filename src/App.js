@@ -30,7 +30,7 @@ function App() {
           <Navbar />
           <LoadingBar height={3} color="#f11946" progress={progress} />
           <Alert alert={alert} />
-          <div className="container">
+          <div className="container" style={{ zIndex: 0 }}>
             <Routes>
               <Route
                 exact
